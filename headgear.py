@@ -1,0 +1,23 @@
+headgear = {
+    "Advanced Power Armor Helmet": 30,
+    "Standard Power Armor Helmet": -5,
+    "Leather Helmet": 5,
+    "Combat Leather Helmet": 10,
+    "Leather Armor Helmet": 10,
+    "Leather Armor Helmet Mark II": 10,
+    "Metal Mask": 15,
+    "Metal Mask Mark II": 15,
+    "Tesla Helmet": 15,
+    "Combat Helmet": 15,
+    "Combat Helmet Mark II": 20,
+    "Brotherhood Combat Helmet": 20,
+    "NCR Ranger Helmet": 20,
+    "Desert Combat Helmet": 20,
+    "Enclave Combat Helmet": 20,
+    "Enclave Combat Helmet Mark II": 20,
+    "Goggles": 0,
+    "Mirrored Shades": 0,
+    "Spectacles": 0,
+    "Ball Gag": 0,
+    "Psychic Nullifier": 0
+}

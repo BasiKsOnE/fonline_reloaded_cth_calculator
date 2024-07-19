@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Chance Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Hit Chance Calculator</h1>
+    
+    <h2>Attacker Info</h2>
+    <label>Strength: <input type="number" id="strength" min="1" max="10" value="5"></label><br>
+    <label>Perception: <input type="number" id="perception" min="1" max="10" value="5"></label><br>
+    <label>Weapon Skill: <input type="number" id="weapon_skill" min="1" max="300" value="100"></label><br>
+    <label>Sharpshooter: <input type="checkbox" id="sharpshooter"></label><br>
+    <label>Weapon Handling: <input type="checkbox" id="weapon_handling"></label><br>
+    <label>Eye Damage: <input type="checkbox" id="eye_damage"></label><br>
+    <label>Weapon: 
+        <select id="weapon" onchange="updateAmmoOptions()">
+            {% for weapon in weapons %}
+                <option value="{{ weapon }}">{{ weapon }}</option>
+            {% endfor %}
+        </select>
+    </label><br>
+    <label>Ammo: 
+        <select id="ammo">
+        </select>
+    </label><br>    
+    <label>Attack Type: 
+        <select id="attack_type">
+            <option value="Un-Aimed">Un-Aimed</option>
+            <option value="Burst">Burst</option>
+            <option value="Aimed Eyes">Aimed Eyes</option>
+            <option value="Aimed Head">Aimed Head</option>
+            <option value="Aimed Torso">Aimed Torso</option>
+            <option value="Aimed Arm">Aimed Arm</option>
+            <option value="Aimed Leg">Aimed Leg</option>
+            <option value="Aimed Groin">Aimed Groin</option>
+        </select>
+    </label><br>
+    <label>Target Distance: <input type="number" id="target_distance" min="1" value="5"></label><br>
+
+    <h2>Defender Info</h2>
+    <label>Agility: <input type="number" id="defender_agility" min="1" max="10" value="5"></label><br>
+    <label>Livewire: <input type="checkbox" id="livewire"></label><br>
+    <label>Armor: 
+        <select id="armor">
+            {% for armor_type in armor_types %}
+                <option value="{{ armor_type }}">{{ armor_type }}</option>
+            {% endfor %}
+        </select>
+    </label><br>
+    <label>Headgear: 
+        <select id="headgear">
+            {% for headgear_type in headgear_types %}
+                <option value="{{ headgear_type }}">{{ headgear_type }}</option>
+            {% endfor %}
+        </select>
+    </label><br>
+    <label>Dodger Rank: 
+        <select id="dodger_rank">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </label><br>
+    <label>In Your Face: <input type="checkbox" id="in_your_face"></label><br>
+
+    <h2>Hit Chance: <span id="hit_chance">-</span></h2>
+
+    <script>
+        function updateAmmoOptions() {
+            const selectedWeapon = $('#weapon').val();
+            $.getJSON(`/get_valid_ammo/${selectedWeapon}`, function(data) {
+                const ammoSelect = $('#ammo');
+                ammoSelect.empty();
+                data.forEach(function(ammoType) {
+                    ammoSelect.append($('<option></option>').attr('value', ammoType).text(ammoType));
+                });
+                updateHitChance();
+            });
+        }
+    
+        function updateHitChance() {
+            const attackType = $('#attack_type').val();
+            const [type, aimedPart] = attackType.split(' ');
+            
+            const data = {
+                strength: $('#strength').val(),
+                perception: $('#perception').val(),
+                weapon_skill: $('#weapon_skill').val(),
+                sharpshooter: $('#sharpshooter').is(':checked'),
+                weapon_handling: $('#weapon_handling').is(':checked'),
+                eye_damage: $('#eye_damage').is(':checked'),
+                weapon: $('#weapon').val(),
+                ammo: $('#ammo').val(),
+                attack_type: type,
+                aimed_body_part: type === 'Aimed' ? aimedPart : null,
+                target_distance: $('#target_distance').val(),
+                defender_agility: $('#defender_agility').val(),
+                livewire: $('#livewire').is(':checked'),
+                armor: $('#armor').val(),
+                headgear: $('#headgear').val(),
+                dodger_rank: $('#dodger_rank').val(),
+                in_your_face: $('#in_your_face').is(':checked')
+            };
+
+            $.ajax({
+                url: '/calculate',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function(response) {
+                    $('#hit_chance').text(response.hit_chance);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
+                }
+            });
+        }
+
+            $('#weapon').on('change', updateAmmoOptions);
+        $('input, select').on('change', updateHitChance);
+        $(document).ready(function() {
+            updateAmmoOptions();
+            updateHitChance();
+        });
+    </script>
+</body>
+</html>
