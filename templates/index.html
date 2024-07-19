@@ -68,7 +68,8 @@
     <label>In Your Face: <input type="checkbox" id="in_your_face"></label><br>
 
     <h2>Hit Chance: <span id="hit_chance">-</span></h2>
-
+    <h2>Defender AC: <span id="defender_ac">-</span></h2>
+    
     <script>
         function updateAmmoOptions() {
             const selectedWeapon = $('#weapon').val();
@@ -105,7 +106,7 @@
                 dodger_rank: $('#dodger_rank').val(),
                 in_your_face: $('#in_your_face').is(':checked')
             };
-
+    
             $.ajax({
                 url: '/calculate',
                 method: 'POST',
@@ -113,19 +114,20 @@
                 data: JSON.stringify(data),
                 success: function(response) {
                     $('#hit_chance').text(response.hit_chance);
+                    $('#defender_ac').text(response.defender_ac);  // Add this line
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
                 }
             });
         }
-
-            $('#weapon').on('change', updateAmmoOptions);
+    
+        $('#weapon').on('change', updateAmmoOptions);
         $('input, select').on('change', updateHitChance);
         $(document).ready(function() {
             updateAmmoOptions();
             updateHitChance();
         });
-    </script>
+    </script>    
 </body>
 </html>

@@ -58,8 +58,15 @@ def calculate():
         is_blind=data['eye_damage'],
         attack_type=data['attack_type']  # Add this line
     )
+    defender_ac = calculate_defender_ac(
+        DEFENDER_AGILITY=int(data['defender_agility']),
+        DEFENDER_LIVEWIRE=data['livewire'],
+        DEFENDER_ARMOR=data['armor'],
+        DEFENDER_HEADGEAR=data['headgear'],
+        AIMED_BODY_PART=data['aimed_body_part']
+    )
     
-    return jsonify({'hit_chance': result})
+    return jsonify({'hit_chance': result, 'defender_ac': defender_ac})
 
 if __name__ == '__main__':
     app.run(debug=True)
