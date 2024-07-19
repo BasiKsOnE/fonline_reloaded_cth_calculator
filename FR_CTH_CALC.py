@@ -58,19 +58,27 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
                          is_sharpshooter, aimed_body_part, weapon_handling, weapon_crafting_bonus, 
                          target_armor_crafting_bonus, defender_dodger_rank, defender_in_your_face,
                          defender_agility, defender_livewire, defender_armor, defender_headgear,
-                         is_blind):
+                         is_blind, attack_type):
     
     # Use the weapon object directly
     weapon_req_st = weapon['st']
-    weapon_range = weapon['range']
+    
+    # Handle different range formats
+    if isinstance(weapon['range'], dict):
+        if attack_type == 'Burst':
+            weapon_range = weapon['range'].get('B', weapon['range'].get('S', 0))
+        else:
+            weapon_range = weapon['range'].get('S', 0)
+    else:
+        weapon_range = weapon['range']
+    
     is_accurate = "Accurate" in weapon['perks']
     is_scoped = "Scoped" in weapon['perks']
     is_long_range = "Long Range" in weapon['perks']
     
-    # Calculate sight range
+    # Check for out of range and sight conditions
     sight_range = calculate_sight_range(perception, is_blind)
     
-    # Check for out of range and sight conditions
     if target_distance > weapon_range and target_distance > sight_range:
         return "Out of Range & Sight"
     elif target_distance > weapon_range:

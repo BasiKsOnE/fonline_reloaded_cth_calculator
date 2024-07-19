@@ -55,7 +55,8 @@ def calculate():
         defender_livewire=data['livewire'],
         defender_armor=data['armor'],
         defender_headgear=data['headgear'],
-        is_blind=data['eye_damage']
+        is_blind=data['eye_damage'],
+        attack_type=data['attack_type']  # Add this line
     )
     
     return jsonify({'hit_chance': result})
