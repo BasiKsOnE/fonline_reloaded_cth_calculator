@@ -14,6 +14,7 @@
     <label>Perception: <input type="number" id="perception" min="1" max="10" value="5"></label><br>
     <label>Weapon Skill: <input type="number" id="weapon_skill" min="1" max="300" value="100"></label><br>
     <label>Sharpshooter: <input type="checkbox" id="sharpshooter"></label><br>
+    <label>One Hander: <input type="checkbox" id="is_one_hander"></label><br>
     <label>Weapon Handling: <input type="checkbox" id="weapon_handling"></label><br>
     <label>Eye Damage: <input type="checkbox" id="eye_damage"></label><br>
     <label>Weapon: 
@@ -83,6 +84,28 @@
             });
         }
     
+        function updateAttackTypeOptions() {
+            const selectedWeapon = $('#weapon').val();
+            $.getJSON(`/get_valid_attack_types/${selectedWeapon}`, function(data) {
+                const attackTypeSelect = $('#attack_type');
+                attackTypeSelect.empty();
+                data.forEach(function(attackType) {
+                    if (attackType === "Single") {
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Un-Aimed').text('Un-Aimed'));
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Aimed Eyes').text('Aimed Eyes'));
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Aimed Head').text('Aimed Head'));
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Aimed Torso').text('Aimed Torso'));
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Aimed Arm').text('Aimed Arm'));
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Aimed Leg').text('Aimed Leg'));
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Aimed Groin').text('Aimed Groin'));
+                    } else if (attackType === "Burst") {
+                        attackTypeSelect.append($('<option></option>').attr('value', 'Burst').text('Burst'));
+                    }
+                });
+                updateHitChance();
+            });
+        }
+    
         function updateHitChance() {
             const attackType = $('#attack_type').val();
             const [type, aimedPart] = attackType.split(' ');
@@ -104,7 +127,8 @@
                 armor: $('#armor').val(),
                 headgear: $('#headgear').val(),
                 dodger_rank: $('#dodger_rank').val(),
-                in_your_face: $('#in_your_face').is(':checked')
+                in_your_face: $('#in_your_face').is(':checked'),
+                is_one_hander: $('#is_one_hander').is(':checked'),
             };
     
             $.ajax({
@@ -114,7 +138,7 @@
                 data: JSON.stringify(data),
                 success: function(response) {
                     $('#hit_chance').text(response.hit_chance);
-                    $('#defender_ac').text(response.defender_ac);  // Add this line
+                    $('#defender_ac').text(response.defender_ac);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
@@ -122,10 +146,16 @@
             });
         }
     
-        $('#weapon').on('change', updateAmmoOptions);
+        $('#weapon').on('change', function() {
+            updateAmmoOptions();
+            updateAttackTypeOptions();
+        });
+    
         $('input, select').on('change', updateHitChance);
+    
         $(document).ready(function() {
             updateAmmoOptions();
+            updateAttackTypeOptions();
             updateHitChance();
         });
     </script>    

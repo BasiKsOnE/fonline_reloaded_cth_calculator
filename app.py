@@ -28,20 +28,27 @@ def get_valid_ammo(weapon_name):
     valid_ammo = weapon.get('ammo', [])
     return jsonify(valid_ammo)
 
+@app.route('/get_valid_attack_types/<weapon_name>')
+def get_valid_attack_types(weapon_name):
+    weapon = all_weapons.get(weapon_name)
+    if not weapon:
+        return jsonify([])
+    valid_attack_types = weapon.get('attack_types', [])
+    return jsonify(valid_attack_types)
+    
 @app.route('/calculate', methods=['POST'])
 def calculate():
     data = request.json
     
-    # Get the full weapon object
     weapon = all_weapons.get(data['weapon'])
     if not weapon:
-        return jsonify({'hit_chance': "Error: Invalid weapon"})
+        return jsonify({'hit_chance': "Error: Invalid weapon", 'defender_ac': "N/A"})
 
     result = calculate_hit_chance(
         skill=int(data['weapon_skill']),
         perception=int(data['perception']),
         strength=int(data['strength']),
-        weapon=weapon,  # Pass the entire weapon object
+        weapon=weapon,
         ammo_type=data['ammo'],
         target_distance=int(data['target_distance']),
         is_sharpshooter=data['sharpshooter'],
@@ -56,8 +63,10 @@ def calculate():
         defender_armor=data['armor'],
         defender_headgear=data['headgear'],
         is_blind=data['eye_damage'],
-        attack_type=data['attack_type']  # Add this line
+        attack_type=data['attack_type'],
+        is_one_hander=data['is_one_hander']
     )
+
     defender_ac = calculate_defender_ac(
         DEFENDER_AGILITY=int(data['defender_agility']),
         DEFENDER_LIVEWIRE=data['livewire'],

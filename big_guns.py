@@ -8,7 +8,8 @@ big_guns = {
         "type": "Gatling Gun",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     },
     "Avenger Minigun": {
         "perks": ["Accurate"],
@@ -19,7 +20,8 @@ big_guns = {
         "type": "Gatling Gun",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     },
     "Flamer": {
         "perks": [],
@@ -30,7 +32,8 @@ big_guns = {
         "type": "Flamer",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     },
     "Incinerator": {
         "perks": ["Flameboy"],
@@ -41,7 +44,8 @@ big_guns = {
         "type": "Flamer",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     },
     "Rocket Launcher": {
         "perks": ["Long Range"],
@@ -52,7 +56,8 @@ big_guns = {
         "type": "Rocket Launcher",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "M60": {
         "perks": [],
@@ -63,7 +68,8 @@ big_guns = {
         "type": "Machine Gun",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     },
     "Light Support Weapon": {
         "perks": ["Long Range"],
@@ -74,7 +80,8 @@ big_guns = {
         "type": "Machine Gun",
         "ap": [5, 6],
         "st": 6,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Bozar": {
         "perks": ["Long Range"],
@@ -85,7 +92,8 @@ big_guns = {
         "type": "Sniper Rifle",
         "ap": [5, 6],
         "st": 6,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Vindicator Minigun": {
         "perks": [],
@@ -96,6 +104,7 @@ big_guns = {
         "type": "Gatling Gun",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     }
 }

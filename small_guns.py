@@ -8,7 +8,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "14mm Pistol": {
         "perks": ["Penetrate"],
@@ -19,7 +20,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "9mm Mauser": {
         "perks": ["Accurate"],
@@ -30,7 +32,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Desert Eagle .44": {
         "perks": [],
@@ -41,7 +44,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Desert Eagle (Exp. Mag.)": {
         "perks": [],
@@ -52,7 +56,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     ".223 Pistol": {
         "perks": ["Penetrate"],
@@ -63,7 +68,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 5,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Shotgun": {
         "perks": ["Accurate", "Knockback"],
@@ -74,7 +80,8 @@ small_guns = {
         "type": "Shotgun",
         "ap": [4, 5],
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Sawed-Off Shotgun": {
         "perks": ["Accurate", "Knockback"],
@@ -85,7 +92,8 @@ small_guns = {
         "type": "Shotgun",
         "ap": [4, 5],
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "Combat Shotgun": {
         "perks": ["Penetrate", "Knockback"],
@@ -96,7 +104,8 @@ small_guns = {
         "type": "Shotgun",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "MP9 10mm SMG": {
         "perks": [],
@@ -107,7 +116,8 @@ small_guns = {
         "type": "SMG",
         "ap": [4, 5],
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "Assault Rifle": {
         "perks": ["Long Range"],
@@ -118,7 +128,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Assault Rifle (Exp. Mag.)": {
         "perks": ["Long Range"],
@@ -129,7 +140,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Hunting Rifle": {
         "perks": ["Long Range"],
@@ -140,7 +152,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Scoped Hunting Rifle": {
         "perks": ["Scoped"],
@@ -151,7 +164,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Sniper Rifle": {
         "perks": ["Long Range"],
@@ -162,7 +176,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Red Ryder BB Gun": {
         "perks": [],
@@ -173,7 +188,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 3,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Jonny's BB Gun": {
         "perks": [],
@@ -184,7 +200,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 3,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Red Ryder LE BB Gun": {
         "perks": [],
@@ -195,7 +212,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 3,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     ".44 Magnum Revolver": {
         "perks": [],
@@ -206,7 +224,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     ".44 Magnum (Speed Load)": {
         "perks": ["Fast Reload"],
@@ -217,7 +236,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Needler Pistol": {
         "perks": ["Penetrate"],
@@ -228,7 +248,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "H&K CAWS": {
         "perks": ["Penetrate", "Knockback"],
@@ -239,7 +260,8 @@ small_guns = {
         "type": "Shotgun",
         "ap": 6,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Pancor Jackhammer": {
         "perks": ["Penetrate", "Knockback"],
@@ -250,7 +272,8 @@ small_guns = {
         "type": "Shotgun",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "M3A1 \"Grease Gun\" SMG": {
         "perks": [],
@@ -261,7 +284,8 @@ small_guns = {
         "type": "SMG",
         "ap": 4,
         "st": 5,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "Tommy Gun": {
         "perks": [],
@@ -272,7 +296,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 6,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "H&K P90c": {
         "perks": [],
@@ -283,7 +308,8 @@ small_guns = {
         "type": "SMG",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "H&K G11": {
         "perks": ["Accurate"],
@@ -294,7 +320,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "H&K G11E": {
         "perks": ["Accurate"],
@@ -305,7 +332,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 6,
         "st": 5,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "FN FAL": {
         "perks": [],
@@ -316,7 +344,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "FN FAL (Night Sight)": {
         "perks": [],
@@ -327,7 +356,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "FN FAL HPFA": {
         "perks": [],
@@ -338,7 +368,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "XL70E3": {
         "perks": ["Accurate"],
@@ -349,7 +380,8 @@ small_guns = {
         "type": "Assault Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Grenade pistol": {
         "perks": [],
@@ -360,7 +392,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 5,
         "st": 5,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "M79 Grenade Launcher": {
         "perks": [],
@@ -371,7 +404,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 6,
         "st": 6,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Zip Gun": {
         "perks": [],
@@ -382,7 +416,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Pipe Rifle": {
         "perks": [],
@@ -393,7 +428,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "PPK12 Gauss Pistol": {
         "perks": ["Accurate"],
@@ -404,7 +440,8 @@ small_guns = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "M72 Gauss Rifle": {
         "perks": ["Long Range"],
@@ -415,7 +452,8 @@ small_guns = {
         "type": "Rifle",
         "ap": 6,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     }
 }
 

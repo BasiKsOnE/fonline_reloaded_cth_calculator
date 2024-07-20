@@ -5,6 +5,8 @@ from ammo import ammo
 from armor import armor
 from headgear import headgear
 
+all_weapons =  {**small_guns, **big_guns, **energy_weapons}
+
 # Define parameters
 SKILL = 300
 PERCEPTION = 5
@@ -24,6 +26,8 @@ DEFENDER_HEADGEAR = "Combat Helmet"  # This will be the name of the headgear fro
 DEFENDER_DODGER_RANK = 0  # 0 for no perk, 1 for first rank, 2 for second rank
 DEFENDER_IN_YOUR_FACE = True
 AIMED_BODY_PART = 'Eyes'  # Can be None, 'Eyes', 'Head', 'Groin', 'Arm', 'Leg', or 'Torso'
+IS_ONE_HANDER = False
+ATTACK_TYPE = "Burst"
 
 # Aimed attack data
 AIMED_ATTACK_DATA = {
@@ -34,10 +38,13 @@ AIMED_ATTACK_DATA = {
     'Leg':  {'hit_penalty': 20},
     'Torso': {'hit_penalty': 0}
 }
-def calculate_sight_range(perception, is_blind):
+
+def calculate_sight_range(perception, is_blind, is_sharpshooter):
     if is_blind:
         return 23  # Blindness limits sight range to 23 regardless of Perception
-    return 23 + (perception - 1) * 3
+    base_range = 23 + (perception - 1) * 3
+    sharpshooter_bonus = 6 if is_sharpshooter else 0
+    return base_range + sharpshooter_bonus
 
 def calculate_defender_ac(DEFENDER_AGILITY, DEFENDER_LIVEWIRE, DEFENDER_ARMOR, DEFENDER_HEADGEAR, AIMED_BODY_PART):
     if DEFENDER_LIVEWIRE:
@@ -58,7 +65,7 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
                          is_sharpshooter, aimed_body_part, weapon_handling, weapon_crafting_bonus, 
                          target_armor_crafting_bonus, defender_dodger_rank, defender_in_your_face,
                          defender_agility, defender_livewire, defender_armor, defender_headgear,
-                         is_blind, attack_type):
+                         is_blind, attack_type, is_one_hander):
     
     # Use the weapon object directly
     weapon_req_st = weapon['st']
@@ -77,7 +84,7 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
     is_long_range = "Long Range" in weapon['perks']
     
     # Check for out of range and sight conditions
-    sight_range = calculate_sight_range(perception, is_blind)
+    sight_range = calculate_sight_range(perception, is_blind, is_sharpshooter)
     
     if target_distance > weapon_range and target_distance > sight_range:
         return "Out of Range & Sight"
@@ -91,6 +98,13 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
     ac_mod = ammo_data['ac_mod']
 
     hit_chance = skill
+
+    # Apply One Hander trait effects (add this block)
+    if is_one_hander:
+        if weapon['hands'] == 1:
+            hit_chance += 20  # +20% for single-handed weapons
+        elif weapon['hands'] == 2:
+            hit_chance -= 40  # -40% for two-handed weapons
 
     # Adjust perception for blindness
     if is_blind:
@@ -150,12 +164,17 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
     return f"{round(hit_chance)}%"
 
 def main():
+    weapon = all_weapons.get(WEAPON_NAME)
+    if not weapon:
+        print(f"Error: Invalid weapon '{WEAPON_NAME}'")
+        return
+
     result = calculate_hit_chance(
-        SKILL, PERCEPTION, STRENGTH, WEAPON_NAME, AMMO_TYPE, TARGET_DISTANCE,
+        SKILL, PERCEPTION, STRENGTH, weapon, AMMO_TYPE, TARGET_DISTANCE,
         IS_SHARPSHOOTER, AIMED_BODY_PART, WEAPON_HANDLING, WEAPON_CRAFTING_BONUS,
         TARGET_ARMOR_CRAFTING_BONUS, DEFENDER_DODGER_RANK, DEFENDER_IN_YOUR_FACE,
         DEFENDER_AGILITY, DEFENDER_LIVEWIRE, DEFENDER_ARMOR, DEFENDER_HEADGEAR,
-        IS_BLIND
+        IS_BLIND, ATTACK_TYPE, IS_ONE_HANDER
     )
     
     if isinstance(result, str):

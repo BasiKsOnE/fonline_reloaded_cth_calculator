@@ -8,7 +8,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Magneto-Laser Pistol": {
         "perks": ["Penetrate"],
@@ -19,7 +20,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Wattz 2000 Laser Rifle": {
         "perks": ["Long Range"],
@@ -30,7 +32,8 @@ energy_weapons = {
         "type": "Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Laser Rifle (Ext. Cap.)": {
         "perks": ["Long Range"],
@@ -41,7 +44,8 @@ energy_weapons = {
         "type": "Rifle",
         "ap": 5,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Glock 86 Plasma Pistol": {
         "perks": [],
@@ -52,7 +56,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Plasma Pistol (Ext. Cap.)": {
         "perks": [],
@@ -63,7 +68,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Winchester P94 Plasma Rifle": {
         "perks": ["Long Range"],
@@ -74,7 +80,8 @@ energy_weapons = {
         "type": "Rifle",
         "ap": 6,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Turbo Plasma Rifle": {
         "perks": ["Long Range"],
@@ -85,7 +92,8 @@ energy_weapons = {
         "type": "Rifle",
         "ap": 6,
         "st": 4,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "L30 Gatling Laser": {
         "perks": [],
@@ -96,7 +104,8 @@ energy_weapons = {
         "type": "Gatling Gun",
         "ap": 7,
         "st": 7,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Burst"]
     },
     "Alien Blaster": {
         "perks": [],
@@ -107,7 +116,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 2,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "YK32 Pulse Pistol": {
         "perks": ["Penetrate"],
@@ -118,7 +128,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "YK42B Pulse Rifle": {
         "perks": ["Long Range"],
@@ -129,7 +140,8 @@ energy_weapons = {
         "type": "Rifle",
         "ap": 6,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single"]
     },
     "Solar Scorcher": {
         "perks": [],
@@ -140,7 +152,8 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     },
     "Laser SMG": {
         "perks": [],
@@ -151,7 +164,8 @@ energy_weapons = {
         "type": "SMG",
         "ap": 4,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single", "Burst"]
     },
     "Laser Support Weapon": {
         "perks": ["Long Range"],
@@ -162,7 +176,8 @@ energy_weapons = {
         "type": "SMG",
         "ap": 6,
         "st": 5,
-        "hands": 2
+        "hands": 2,
+        "attack_types": ["Single", "Burst"]
     },
     "Phazer": {
         "perks": ["Accurate"],
@@ -173,6 +188,7 @@ energy_weapons = {
         "type": "Pistol",
         "ap": 3,
         "st": 4,
-        "hands": 1
+        "hands": 1,
+        "attack_types": ["Single"]
     }
 }
