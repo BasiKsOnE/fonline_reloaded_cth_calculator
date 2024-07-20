@@ -3,6 +3,10 @@
 ## Description
 This project is a Hit Chance Calculator for FOnline Reloaded, a post-apocalyptic MMORPG based on the Fallout universe. It allows players to calculate the hit chance for various weapons under different conditions.
 
+## Public App
+This app is currently hosted at
+> https://foreloaded-cth-calc-2bf0bb251d72.herokuapp.com/
+
 ## Features
 - Dynamic weapon selection with corresponding ammo types
 - Customizable attacker attributes (Strength, Perception, Weapon Skill, etc.)
