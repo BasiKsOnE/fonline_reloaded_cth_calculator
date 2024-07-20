@@ -17,7 +17,6 @@ TARGET_DISTANCE = 40
 IS_SHARPSHOOTER = False
 WEAPON_HANDLING = False
 WEAPON_CRAFTING_BONUS = 0
-TARGET_ARMOR_CRAFTING_BONUS = 0
 IS_BLIND = False
 DEFENDER_AGILITY = 5
 DEFENDER_LIVEWIRE = False
@@ -63,7 +62,7 @@ def calculate_defender_ac(DEFENDER_AGILITY, DEFENDER_LIVEWIRE, DEFENDER_ARMOR, D
 
 def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_distance, 
                          is_sharpshooter, aimed_body_part, weapon_handling, weapon_crafting_bonus, 
-                         target_armor_crafting_bonus, defender_dodger_rank, defender_in_your_face,
+                         defender_dodger_rank, defender_in_your_face,
                          defender_agility, defender_livewire, defender_armor, defender_headgear,
                          is_blind, attack_type, is_one_hander):
     
@@ -147,7 +146,7 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
         hit_chance -= AIMED_ATTACK_DATA[aimed_body_part]['hit_penalty']
 
     # Crafting bonuses
-    hit_chance += weapon_crafting_bonus - target_armor_crafting_bonus
+    hit_chance += int(weapon_crafting_bonus)
 
     # Apply Dodger perk effect
     if defender_dodger_rank > 0:
@@ -172,7 +171,7 @@ def main():
     result = calculate_hit_chance(
         SKILL, PERCEPTION, STRENGTH, weapon, AMMO_TYPE, TARGET_DISTANCE,
         IS_SHARPSHOOTER, AIMED_BODY_PART, WEAPON_HANDLING, WEAPON_CRAFTING_BONUS,
-        TARGET_ARMOR_CRAFTING_BONUS, DEFENDER_DODGER_RANK, DEFENDER_IN_YOUR_FACE,
+        DEFENDER_DODGER_RANK, DEFENDER_IN_YOUR_FACE,
         DEFENDER_AGILITY, DEFENDER_LIVEWIRE, DEFENDER_ARMOR, DEFENDER_HEADGEAR,
         IS_BLIND, ATTACK_TYPE, IS_ONE_HANDER
     )

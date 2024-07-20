@@ -24,6 +24,7 @@
             {% endfor %}
         </select>
     </label><br>
+    <label>Weapon Crafting Bonus: <input type="number" id="weapon_crafting_bonus" min="0" max="25" value="0"></label><br>
     <label>Ammo: 
         <select id="ammo">
         </select>
@@ -121,6 +122,7 @@
                 dodger_rank: $('#dodger_rank').val(),
                 in_your_face: $('#in_your_face').is(':checked'),
                 is_one_hander: $('#is_one_hander').is(':checked'),
+                weapon_crafting_bonus: $('#weapon_crafting_bonus').val(),
             };
     
             $.ajax({
