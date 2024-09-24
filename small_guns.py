@@ -300,7 +300,7 @@ small_guns = {
         "attack_types": ["Single", "Burst"]
     },
     "H&K P90c": {
-        "perks": [],
+        "perks": ["Accurate"],
         "damage": "15-25",
         "range": {"S": 30, "B": 25},
         "ammo": ["10mm JHP", "10mm AP"],

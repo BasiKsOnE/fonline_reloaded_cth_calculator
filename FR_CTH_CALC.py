@@ -108,6 +108,7 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
     # Adjust perception for blindness
     if is_blind:
         perception = 1
+        hit_chance -= 19
 
     # Perception bonus
     if is_scoped:
@@ -128,8 +129,9 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
     if is_accurate:
         hit_chance += 20
 
-    # Distance penalty
-    hit_chance -= 4 * target_distance
+    # Distance penalty (update this part)
+    distance_penalty_multiplier = 12 if is_blind else 4
+    hit_chance -= distance_penalty_multiplier * target_distance
 
     # Strength requirement penalty
     strength_penalty = max(0, (weapon_req_st - (2 if weapon_handling else 0)) - strength) * 20

@@ -17,7 +17,7 @@ armor = {
     "Combat Armor": 20,
     "NCR Ranger Armor": 25,
     "Desert Combat Armor": 25,
-    "Combat Armor Mark II": 25,
+    "Combat Armor Mark II": 20,
     "Brotherhood Armor": 25,
     "Enclave Armor": 25,
     "Power Armor": 30,
