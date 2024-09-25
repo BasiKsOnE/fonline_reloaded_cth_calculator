@@ -158,7 +158,7 @@ energy_weapons = {
     "Laser SMG": {
         "perks": [],
         "damage": "20-35",
-        "range": 30,
+        "range": {"S": 30, "B": 30},
         "ammo": ["Small Energy Cell"],
         "ammo_capacity": 60,
         "type": "SMG",
@@ -170,7 +170,7 @@ energy_weapons = {
     "Laser Support Weapon": {
         "perks": ["Long Range"],
         "damage": "45-54",
-        "range": 45,
+        "range": {"S": 45, "B": 45},
         "ammo": ["Micro Fusion Cell"],
         "ammo_capacity": 30,
         "type": "SMG",

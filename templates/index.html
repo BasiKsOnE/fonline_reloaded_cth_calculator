@@ -12,19 +12,25 @@
     <h2>Attacker Info</h2>
     <label>Strength: <input type="number" id="strength" min="1" max="10" value="5"></label><br>
     <label>Perception: <input type="number" id="perception" min="1" max="10" value="5"></label><br>
+    <label>Weapon Category: 
+        <select id="weapon_category" onchange="updateWeaponOptions()">
+            {% for category in weapon_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+    </label><br>
     <label>Weapon Skill: <input type="number" id="weapon_skill" min="1" max="300" value="100"></label><br>
     <label>Sharpshooter: <input type="checkbox" id="sharpshooter"></label><br>
     <label>One Hander: <input type="checkbox" id="is_one_hander"></label><br>
+    <label>Heave Ho!: <input type="checkbox" id="is_heave_ho"></label><br>
     <label>Weapon Handling: <input type="checkbox" id="weapon_handling"></label><br>
     <label>Eye Damage: <input type="checkbox" id="eye_damage"></label><br>
     <label>Weapon: 
         <select id="weapon" onchange="updateAmmoOptions()">
-            {% for weapon in weapons %}
-                <option value="{{ weapon }}">{{ weapon }}</option>
-            {% endfor %}
         </select>
     </label><br>
-    <label>Weapon Crafting Bonus: <input type="number" id="weapon_crafting_bonus" min="0" max="25" value="0"></label><br>
+    <label>Weapon Crafting Bonus (Accuracy): <input type="number" id="weapon_crafting_bonus_accuracy" min="0" max="25" value="0"></label><br>
+    <label>Weapon Crafting Bonus (Range): <input type="number" id="weapon_crafting_bonus_range" min="0" max="2" value="0"></label><br>
     <label>Ammo: 
         <select id="ammo">
         </select>
@@ -59,12 +65,25 @@
             <option value="2">2</option>
         </select>
     </label><br>
-    <label>In Your Face: <input type="checkbox" id="in_your_face"></label><br>
+    <label>In Your Face!: <input type="checkbox" id="in_your_face"></label><br>
 
     <h2>Hit Chance: <span id="hit_chance">-</span></h2>
     <h2>Defender AC: <span id="defender_ac">-</span></h2>
     
     <script>
+        function updateWeaponOptions() {
+            const selectedCategory = $('#weapon_category').val();
+            $.getJSON(`/get_weapons/${selectedCategory}`, function(data) {
+                const weaponSelect = $('#weapon');
+                weaponSelect.empty();
+                data.forEach(function(weapon) {
+                    weaponSelect.append($('<option></option>').attr('value', weapon).text(weapon));
+                });
+                updateAmmoOptions();
+                updateAttackTypeOptions();
+            });
+        }        
+        
         function updateAmmoOptions() {
             const selectedWeapon = $('#weapon').val();
             $.getJSON(`/get_valid_ammo/${selectedWeapon}`, function(data) {
@@ -122,8 +141,11 @@
                 dodger_rank: $('#dodger_rank').val(),
                 in_your_face: $('#in_your_face').is(':checked'),
                 is_one_hander: $('#is_one_hander').is(':checked'),
-                weapon_crafting_bonus: $('#weapon_crafting_bonus').val(),
+                is_heave_ho: $('#is_heave_ho').is(':checked'),
+                weapon_crafting_bonus_accuracy: $('#weapon_crafting_bonus_accuracy').val(),
+                weapon_crafting_bonus_range: $('#weapon_crafting_bonus_range').val(),
             };
+            console.log("Sending data:", data);
     
             $.ajax({
                 url: '/calculate',
@@ -131,6 +153,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(data),
                 success: function(response) {
+                    console.log("Received response:", response);
                     $('#hit_chance').text(response.hit_chance);
                     $('#defender_ac').text(response.defender_ac);
                 },
@@ -140,16 +163,17 @@
             });
         }
     
+        $('#weapon_category').on('change', updateWeaponOptions);
         $('#weapon').on('change', function() {
             updateAmmoOptions();
             updateAttackTypeOptions();
         });
-    
+
         $('input, select').on('change', updateHitChance);
-    
+        $('#weapon_crafting_bonus_accuracy, #weapon_crafting_bonus_range').on('change', updateHitChance);
+
         $(document).ready(function() {
-            updateAmmoOptions();
-            updateAttackTypeOptions();
+            updateWeaponOptions();
             updateHitChance();
         });
     </script>    

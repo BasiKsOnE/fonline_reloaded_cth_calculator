@@ -134,7 +134,7 @@ small_guns = {
     "Assault Rifle (Exp. Mag.)": {
         "perks": ["Long Range"],
         "damage": "14-23",
-        "range": {"S": 45, "B": 35},
+        "range": {"S": 50, "B": 35},
         "ammo": ["5mm JHP", "5mm AP"],
         "ammo_capacity": 60,
         "type": "Assault Rifle",
