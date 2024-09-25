@@ -11,7 +11,7 @@ throwing_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Fool's Gold": {
+    "Fool's Gold (Thrown)": {
         "perks": [],
         "damage": "3-6",
         "range": 15,
@@ -47,7 +47,7 @@ throwing_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Rock": {
+    "Rock (Thrown)": {
         "perks": [],
         "damage": "1-4",
         "range": 15,
@@ -59,7 +59,7 @@ throwing_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Uranium Ore": {
+    "Uranium Ore (Thrown)": {
         "perks": [],
         "damage": "3-6",
         "range": 10,
@@ -71,7 +71,7 @@ throwing_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Refined Uranium Ore": {
+    "Refined Uranium Ore (Thrown)": {
         "perks": [],
         "damage": "4-9",
         "range": 8,
@@ -83,7 +83,7 @@ throwing_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Sharpened Pole": {
+    "Sharpened Pole (Thrown)": {
         "perks": [],
         "damage": "2-4",
         "range": 15,
@@ -95,7 +95,7 @@ throwing_weapons = {
         "hands": 2,
         "attack_types": ["Single"]
     },
-    "Spear": {
+    "Spear (Thrown)": {
         "perks": [],
         "damage": "8-12",
         "range": 15,
@@ -107,7 +107,7 @@ throwing_weapons = {
         "hands": 2,
         "attack_types": ["Single"]
     },
-    "Sharpened Spear": {
+    "Sharpened Spear (Thrown)": {
         "perks": [],
         "damage": "12-20",
         "range": 15,

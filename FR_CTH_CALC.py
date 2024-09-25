@@ -70,6 +70,9 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
                          is_blind, attack_type, is_one_hander, is_heave_ho):
 
     attack_type_key = 'S' if attack_type.startswith('Single') or attack_type.startswith('Aimed') else 'B'
+
+    # Call calculate_defender_ac to get the defender's AC
+    defender_ac = calculate_defender_ac(defender_agility, defender_livewire, defender_armor, defender_headgear, aimed_body_part)
     
     if weapon['type'] == 'Thrown':
         if is_heave_ho:
@@ -81,19 +84,20 @@ def calculate_hit_chance(skill, perception, strength, weapon, ammo_type, target_
 
     sight_range = calculate_sight_range(perception, is_blind, is_sharpshooter)
 
+    if weapon in melee_weapons.values():
+        weapon_range = weapon['range']
+        if target_distance <= weapon_range:
+            return calculate_melee_hit_chance(skill, strength, weapon, defender_ac, aimed_body_part, 
+                                              defender_dodger_rank, defender_in_your_face, target_distance, 
+                                              weapon_crafting_bonus_accuracy)
+        else:
+            return "Out of Range"
     if target_distance > max(weapon_range, sight_range):
         return "Out of Range & Sight"
     elif target_distance > weapon_range:
         return "Out of Range"
     elif target_distance > sight_range:
         return "Out of Sight"
-    
-    # Call calculate_defender_ac to get the defender's AC
-    defender_ac = calculate_defender_ac(defender_agility, defender_livewire, defender_armor, defender_headgear, aimed_body_part)
-
-    # Check if the weapon is a melee weapon
-    if weapon in melee_weapons.values():  
-        return calculate_melee_hit_chance(skill, strength, weapon, defender_ac, aimed_body_part, defender_dodger_rank, defender_in_your_face, target_distance)
 
     # Strength requirement penalty
     weapon_req_st = weapon['st']

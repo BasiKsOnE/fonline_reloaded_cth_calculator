@@ -35,7 +35,7 @@ melee_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Rock": {
+    "Rock (Melee)": {
         "perks": [],
         "damage": "2-5",
         "range": 1,
@@ -47,7 +47,7 @@ melee_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Fool's Gold": {
+    "Fool's Gold (Melee)": {
         "perks": [],
         "damage": "3-6",
         "range": 1,
@@ -59,7 +59,7 @@ melee_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Uranium Ore": {
+    "Uranium Ore (Melee)": {
         "perks": [],
         "damage": "3-6",
         "range": 1,
@@ -71,7 +71,7 @@ melee_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Refined Uranium Ore": {
+    "Refined Uranium Ore (Melee)": {
         "perks": [],
         "damage": "4-9",
         "range": 1,
@@ -275,7 +275,7 @@ melee_weapons = {
         "hands": 1,
         "attack_types": ["Single"]
     },
-    "Sharpened Pole": {
+    "Sharpened Pole (Melee)": {
         "perks": [],
         "damage": "3-5",
         "range": 2,
@@ -287,7 +287,7 @@ melee_weapons = {
         "hands": 2,
         "attack_types": ["Single"]
     },
-    "Spear": {
+    "Spear (Melee)": {
         "perks": [],
         "damage": "9-13",
         "range": 2,
@@ -299,7 +299,7 @@ melee_weapons = {
         "hands": 2,
         "attack_types": ["Single"]
     },
-    "Sharpened Spear": {
+    "Sharpened Spear (Melee)": {
         "perks": ["Penetrate"],
         "damage": "13-21",
         "range": 2,
